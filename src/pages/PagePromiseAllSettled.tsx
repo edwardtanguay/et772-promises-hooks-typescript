@@ -6,36 +6,49 @@ export const PagePromiseAllSettled = () => {
 	const [totalItems, setTotalItems] = useState(0);
 	const [message, setMessage] = useState("");
 
+	// useEffect(() => {
+	// 	Promise.allSettled([tools.getJobs(), tools.getEmployees()])
+	// 		.then((results) => {
+	// 			let total = 0;
+	// 			results.forEach((result) => {
+	// 				if (result.status === 'fulfilled') {
+	// 					total += result.value.length;
+	// 				}
+	// 			})
+	// 			setTotalItems(total);
+	// 		})
+	// 		.catch((err: unknown) => {
+	// 			setMessage(
+	// 				`Error fetching jobs and employees: ${
+	// 					(err as Error).message
+	// 				}`
+	// 			);
+	// 		});
+	// }, []);
+
 	useEffect(() => {
-		Promise.allSettled([tools.getJobs(), tools.getEmployees()])
-			.then((results) => {
+		(async () => {
+			try {
+				const results = await Promise.allSettled([
+					tools.getJobs(),
+					tools.getEmployees(),
+				]);
 				let total = 0;
 				results.forEach((result) => {
-					if (result.status === 'fulfilled') {
+					if (result.status === "fulfilled") {
 						total += result.value.length;
 					}
-				})
+				});
 				setTotalItems(total);
-			})
-			.catch((err: unknown) => {
+			} catch (err: unknown) {
 				setMessage(
 					`Error fetching jobs and employees: ${
 						(err as Error).message
 					}`
 				);
-			});
+			}
+		})();
 	}, []);
-
-	// useEffect(() => {
-	// 	(async () => {
-	// 		try {
-	// 			const [jobs, employees] = await Promise.allSettled([tools.getJobs(), tools.getEmployees()]);
-	// 			setTotalItems(jobs.length + employees.length);
-	// 		} catch (err: unknown) {
-	// 			setMessage(`Error fetching jobs and employees: ${(err as Error).message}`);
-	// 		}
-	// 	})();
-	// }, []);
 	return (
 		<>
 			{message.trim() !== "" && (
