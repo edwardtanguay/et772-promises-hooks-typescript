@@ -3,7 +3,7 @@ import { Employee, Job, Skill } from "../types";
 import * as tools from "../tools";
 import { WaitUntilLoaded } from "../components/WaitUntilLoaded";
 
-export const PageWelcome = () => {
+export const PagePromises = () => {
 	const [skills, setSkills] = useState<Skill[]>([]);
 	const [jobs, setJobs] = useState<Job[]>([]);
 	const [employees, setEmployees] = useState<Employee[]>([]);
