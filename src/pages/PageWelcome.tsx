@@ -38,7 +38,7 @@ export const PageWelcome = () => {
 			.then((_employees) => {
 				setEmployees(_employees);
 			})
-			.catch((err) => {
+			.catch((err: unknown) => {
 				setMessage(
 					`Error fetching employees: ${(err as Error).message}`
 				);
