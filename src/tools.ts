@@ -6,7 +6,7 @@ export const getSkills = (
 	(async () => {
 		try {
 			const response = await fetch(
-				"https://nnnedwardtanguay.vercel.app/share/skills.json"
+				"https://edwardtanguay.vercel.app/share/skills.json"
 			);
 			const skills = await response.json();
 			callback(skills);
