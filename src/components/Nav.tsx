@@ -6,6 +6,7 @@ export const Nav = () => {
 			<li><NavLink to="/promises">Promises</NavLink></li>
 			<li><NavLink to="/promise-all">Promise.all</NavLink></li>
 			<li><NavLink to="/promise-all-settled">Promise.allSettled</NavLink></li>
+			<li><NavLink to="/promise-race">Promise.race</NavLink></li>
 			<li><NavLink to="/about">About</NavLink></li>
 		</ul>
 	</nav>;
