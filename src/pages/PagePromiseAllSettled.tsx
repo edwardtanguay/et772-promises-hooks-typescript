@@ -6,6 +6,7 @@ export const PagePromiseAllSettled = () => {
 	const [totalItems, setTotalItems] = useState(0);
 	const [message, setMessage] = useState("");
 
+	// === THEN SYNTAX
 	// useEffect(() => {
 	// 	Promise.allSettled([tools.getJobs(), tools.getEmployees()])
 	// 		.then((results) => {
