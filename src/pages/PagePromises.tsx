@@ -48,6 +48,9 @@ export const PagePromises = () => {
 
 	return (
 		<>
+			<h2 className="appMessage">
+			Examples of fetching data via a callback, a promise with await, and a promise with then().
+			</h2>
 			{message.trim() !== "" && (
 				<h2 className="bg-red-400 p-2 rounded w-fit mb-3">{message}</h2>
 			)}

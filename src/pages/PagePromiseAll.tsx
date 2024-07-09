@@ -33,6 +33,9 @@ export const PagePromiseAll = () => {
 	}, []);
 	return (
 		<>
+			<h2 className="appMessage">
+			Promise.all waits until all promises have resolved, and if one does not resolve, throws an error.
+			</h2>
 			{message.trim() !== "" && (
 				<h2 className="bg-red-400 p-2 rounded w-fit mb-3">{message}</h2>
 			)}

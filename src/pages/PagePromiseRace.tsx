@@ -30,6 +30,10 @@ export const PagePromiseRace = () => {
 
 	return (
 		<>
+			<h2 className="appMessage">
+				With Promise.race, you can set a time limit for when data from
+				an API needs to be returned, otherwise an error is thrown.
+			</h2>
 			{message.trim() !== "" ? (
 				<h2 className="bg-red-400 p-2 rounded w-fit mb-3">{message}</h2>
 			) : (

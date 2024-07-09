@@ -52,6 +52,9 @@ export const PagePromiseAllSettled = () => {
 	}, []);
 	return (
 		<>
+			<h2 className="appMessage">
+				Promise.allSettled returns all promise results with a status on each if it is resolved or not.
+			</h2>
 			{message.trim() !== "" && (
 				<h2 className="bg-red-400 p-2 rounded w-fit mb-3">{message}</h2>
 			)}
