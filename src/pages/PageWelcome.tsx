@@ -19,7 +19,7 @@ export const PageWelcome = () => {
 		});
 	}, []);
 
-	// PROMISES - ASYNC
+	// PROMISES - AWAIT 
 	useEffect(() => {
 		(async () => {
 			try {
