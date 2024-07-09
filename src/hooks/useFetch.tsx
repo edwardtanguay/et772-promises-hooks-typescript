@@ -1,13 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export const useFetch = <T = unknown,>(url: string, mockWait = false) => {
-	const [items, setItems] = useState<T>([] as T);
+export function useFetch<T>(url: string, mockWait = false) {
+	const [items, setItems] = useState<T[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [timesItemsChanged, setTimesItemsChanged] = useState(0);
-	const [error, setError] = useState('');
+	const [error, setError] = useState("");
 
 	useEffect(() => {
 		if (timesItemsChanged === 0) {
@@ -33,10 +32,10 @@ export const useFetch = <T = unknown,>(url: string, mockWait = false) => {
 					setItems(_items);
 				}
 			} catch (err: unknown) {
-				setError((err as Error).message)
+				setError((err as Error).message);
 			}
 		})();
 	}, []);
 
-	return { items, isLoading, hasError: error !== '', error };
-};
+	return { items, isLoading, hasError: error !== "", error };
+}
