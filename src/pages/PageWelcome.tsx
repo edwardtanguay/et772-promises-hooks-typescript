@@ -33,14 +33,16 @@ export const PageWelcome = () => {
 
 	// PROMISES - THEN
 	useEffect(() => {
-		(async () => {
-			try {
-				const _employees = await tools.getEmployees();
+		tools
+			.getEmployees()
+			.then((_employees) => {
 				setEmployees(_employees);
-			} catch (err: unknown) {
-				setMessage(`Error fetching employees: ${(err as Error).message}`);
-			}
-		})();
+			})
+			.catch((err) => {
+				setMessage(
+					`Error fetching employees: ${(err as Error).message}`
+				);
+			});
 	}, []);
 
 	return (
