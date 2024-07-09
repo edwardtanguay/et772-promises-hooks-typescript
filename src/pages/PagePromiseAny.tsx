@@ -25,7 +25,7 @@ export const PagePromiseAny = () => {
 	return (
 		<>
 			<h2 className="appMessage">
-				With Promise.any, you can have e.g. two APIs that load the same
+				With Promise.any, you can have e.g. two APIs that provide the same
 				data and use the data from the API that returns its data the fastest.
 				Note that to use Promise.any, you need to set "target"="es2021" in your
 				tsconfig.json.
