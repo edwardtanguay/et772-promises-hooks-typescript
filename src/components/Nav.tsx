@@ -8,6 +8,7 @@ export const Nav = () => {
 			<li><NavLink to="/promise-all-settled">Promise.allSettled</NavLink></li>
 			<li><NavLink to="/promise-race">Promise.race</NavLink></li>
 			<li><NavLink to="/promise-any">Promise.any</NavLink></li>
+			<li><NavLink to="/hooks">Hooks</NavLink></li>
 			<li><NavLink to="/about">About</NavLink></li>
 		</ul>
 	</nav>;
