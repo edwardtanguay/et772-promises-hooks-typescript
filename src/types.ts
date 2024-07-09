@@ -3,5 +3,14 @@ export type Skill = {
 	name: string;
 	url: string;
 	description: string;
-	
 }
+
+export type Job = {
+  id: number;
+  title: string;
+  company: string;
+  url: string;
+  description: string;
+  skillList: string;
+  publicationDate: string;
+};

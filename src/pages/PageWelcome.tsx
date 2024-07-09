@@ -6,14 +6,24 @@ export const PageWelcome = () => {
 	const [skills, setSkills] = useState<Skill[]>([]);
 
 	useEffect(() => {
+		// get async data with callback
 		tools.getSkills((_skills) => {
 			setSkills(_skills);
 		});
 	}, []);
 
+	useEffect(() => {
+		// get async data with promise
+		
+	}, []);
+
 	return (
 		<>
-			<h2>There are {skills.length} skills:</h2>
+			<p>There are {skills.length} skills:</p>
 		</>
 	);
 };
+
+
+
+

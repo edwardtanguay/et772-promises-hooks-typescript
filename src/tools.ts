@@ -1,11 +1,4 @@
-import { Skill } from "./types";
-
-// export const getSkills = async (): Skill[] => {
-// 	const response = await fetch('https://edwardtanguay.vercel.app/share/skills.json');
-// 	const skills = await response.json();
-// 	console.log(222, skills);
-// 	return skills;
-// };
+import { Job, Skill } from "./types";
 
 export const getSkills = (callback: (skills: Skill[]) => void): void => {
 	(async () => {
@@ -13,6 +6,22 @@ export const getSkills = (callback: (skills: Skill[]) => void): void => {
 			"https://edwardtanguay.vercel.app/share/skills.json"
 		);
 		const skills = await response.json();
-		callback(skills)
+		callback(skills);
 	})();
+};
+
+export const getJobs = async (): Promise<Job[]> => {
+	return new Promise((resolve, reject) => {
+		(async () => {
+			try {
+				const response = await fetch(
+					"https://edwardtanguay.vercel.app/share/jobs.json"
+				);
+				const jobs = await response.json();
+				resolve(jobs);
+			} catch (err) {
+				reject(err);
+			}
+		})();
+	});
 };
