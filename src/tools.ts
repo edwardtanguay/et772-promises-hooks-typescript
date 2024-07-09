@@ -27,7 +27,7 @@ export const getJobs = async (): Promise<Job[]> => {
 		(async () => {
 			try {
 				const response = await fetch(
-					"nnnhttps://edwardtanguay.vercel.app/share/jobs.json"
+					"https://edwardtanguay.vercel.app/share/jobs.json"
 				);
 				const jobs = await response.json();
 				setTimeout(() => {

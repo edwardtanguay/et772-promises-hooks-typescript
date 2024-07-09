@@ -9,14 +9,28 @@ export const PagePromiseAll = () => {
 	useEffect(() => {
 		Promise.all([tools.getJobs(), tools.getEmployees()])
 			.then((results) => {
+				console.log(111, results.status);
 				const [jobs, employees] = results;
 				setTotalItems(jobs.length + employees.length);
 			})
 			.catch((err: unknown) => {
 				setMessage(
-					`Error fetching jobs and employees: ${(err as Error).message}`
+					`Error fetching jobs and employees: ${
+						(err as Error).message
+					}`
 				);
 			});
+	}, []);
+
+	useEffect(() => {
+		(async () => {
+			try {
+				const [jobs, employees] = await Promise.all([tools.getJobs(), tools.getEmployees()]);
+				setTotalItems(jobs.length + employees.length);
+			} catch (err: unknown) {
+				setMessage(`Error fetching jobs and employees: ${(err as Error).message}`);
+			}
+		})();
 	}, []);
 	return (
 		<>
