@@ -7,6 +7,7 @@ export const PageWelcome = () => {
 
 	useEffect(() => {
 		const _skills = tools.getSkills();
+		console.log(111, _skills);
 		setSkills(_skills);
 	}, []);
 	return (
