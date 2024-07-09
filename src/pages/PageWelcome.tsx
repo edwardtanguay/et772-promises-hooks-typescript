@@ -1,5 +1,17 @@
+import { useEffect, useState } from "react";
+import { Skill } from "../types";
+import * as tools from "../tools";
+
 export const PageWelcome = () => {
+	const [skills, setSkills] = useState<Skill[]>([]);
+
+	useEffect(() => {
+		const _skills = tools.getSkills();
+		setSkills(_skills);
+	}, []);
 	return (
-		<p>This is the welcome page.</p>
+		<>
+			<h2>There are {skills.length} skills:</h2>
+		</>
 	)
-}
+};
