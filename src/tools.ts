@@ -1,5 +1,9 @@
 import { Employee, Job, Skill } from "./types";
 
+const loadWaitingInSecondsSkills = 3;
+const loadWaitingInSecondsJobs = 2;
+const loadWaitingInSecondsEmployees = 4;
+
 export const getSkills = (
 	callback: (skills: Skill[] | string) => void
 ): void => {
@@ -9,7 +13,9 @@ export const getSkills = (
 				"https://edwardtanguay.vercel.app/share/skills.json"
 			);
 			const skills = await response.json();
-			callback(skills);
+			setTimeout(() => {
+				callback(skills);
+			}, loadWaitingInSecondsSkills * 1000);
 		} catch (err: unknown) {
 			callback((err as Error).message as string);
 		}
@@ -24,14 +30,15 @@ export const getJobs = async (): Promise<Job[]> => {
 					"https://edwardtanguay.vercel.app/share/jobs.json"
 				);
 				const jobs = await response.json();
-				resolve(jobs);
+				setTimeout(() => {
+					resolve(jobs);
+				}, loadWaitingInSecondsJobs * 1000);
 			} catch (err) {
 				reject(err);
 			}
 		})();
 	});
 };
-
 
 export const getEmployees = async (): Promise<Employee[]> => {
 	return new Promise((resolve, reject) => {
@@ -41,11 +48,12 @@ export const getEmployees = async (): Promise<Employee[]> => {
 					"https://edwardtanguay.vercel.app/share/employees.json"
 				);
 				const employees = await response.json();
-				resolve(employees);
+				setTimeout(() => {
+					resolve(employees);
+				}, loadWaitingInSecondsEmployees * 1000);
 			} catch (err) {
 				reject(err);
 			}
 		})();
 	});
 };
-

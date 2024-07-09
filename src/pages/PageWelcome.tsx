@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Employee, Job, Skill } from "../types";
 import * as tools from "../tools";
+import { WaitUntilLoaded } from "../components/WaitUntilLoaded";
 
 export const PageWelcome = () => {
 	const [skills, setSkills] = useState<Skill[]>([]);
@@ -19,7 +20,7 @@ export const PageWelcome = () => {
 		});
 	}, []);
 
-	// PROMISES - AWAIT 
+	// PROMISES - AWAIT
 	useEffect(() => {
 		(async () => {
 			try {
@@ -39,7 +40,9 @@ export const PageWelcome = () => {
 				setEmployees(_employees);
 			})
 			.catch((err: unknown) => {
-				setMessage(`Error fetching employees: ${(err as Error).message}`)
+				setMessage(
+					`Error fetching employees: ${(err as Error).message}`
+				);
 			});
 	}, []);
 
@@ -48,9 +51,15 @@ export const PageWelcome = () => {
 			{message.trim() !== "" && (
 				<h2 className="bg-red-400 p-2 rounded w-fit mb-3">{message}</h2>
 			)}
-			<p>There are {skills.length} skills:</p>
-			<p>There are {jobs.length} jobs:</p>
-			<p>There are {employees.length} employees:</p>
+			<WaitUntilLoaded total={skills.length}>
+				<p>There are {skills.length} skills.</p>
+			</WaitUntilLoaded>
+			<WaitUntilLoaded total={jobs.length}>
+				<p>There are {jobs.length} jobs.</p>
+			</WaitUntilLoaded>
+			<WaitUntilLoaded total={employees.length}>
+				<p>There are {employees.length} employees.</p>
+			</WaitUntilLoaded>
 		</>
 	);
 };
