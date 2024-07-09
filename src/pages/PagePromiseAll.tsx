@@ -6,21 +6,20 @@ export const PagePromiseAll = () => {
 	const [totalItems, setTotalItems] = useState(0);
 	const [message, setMessage] = useState("");
 
-	useEffect(() => {
-		Promise.all([tools.getJobs(), tools.getEmployees()])
-			.then((results) => {
-				console.log(111, results.status);
-				const [jobs, employees] = results;
-				setTotalItems(jobs.length + employees.length);
-			})
-			.catch((err: unknown) => {
-				setMessage(
-					`Error fetching jobs and employees: ${
-						(err as Error).message
-					}`
-				);
-			});
-	}, []);
+	// useEffect(() => {
+	// 	Promise.all([tools.getJobs(), tools.getEmployees()])
+	// 		.then((results) => {
+	// 			const [jobs, employees] = results;
+	// 			setTotalItems(jobs.length + employees.length);
+	// 		})
+	// 		.catch((err: unknown) => {
+	// 			setMessage(
+	// 				`Error fetching jobs and employees: ${
+	// 					(err as Error).message
+	// 				}`
+	// 			);
+	// 		});
+	// }, []);
 
 	useEffect(() => {
 		(async () => {

@@ -6,6 +6,7 @@ import { PageWelcome } from "./pages/PageWelcome.tsx";
 import { PageAbout } from "./pages/PageAbout.tsx";
 import { Page404 } from "./pages/Page404.tsx";
 import { PagePromiseAll } from "./pages/PagePromiseAll.tsx";
+import { PagePromiseAllSettled } from "./pages/PagePromiseAllSettled.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
 			{
 				path: "promise-all",
 				element: <PagePromiseAll />,
+			},
+			{
+				path: "promise-all-settled",
+				element: <PagePromiseAllSettled />,
 			},
 			{
 				path: "about",
