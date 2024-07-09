@@ -3,6 +3,7 @@ import { Employee, Job, Skill } from "./types";
 const loadWaitingInSecondsSkills = 3;
 const loadWaitingInSecondsJobs = 2;
 const loadWaitingInSecondsEmployees = 4;
+const loadWaitingInSecondsEmployees2 = 8;
 
 export const getSkills = (
 	callback: (skills: Skill[] | string) => void
@@ -51,6 +52,24 @@ export const getEmployees = async (): Promise<Employee[]> => {
 				setTimeout(() => {
 					resolve(employees);
 				}, loadWaitingInSecondsEmployees * 1000);
+			} catch (err) {
+				reject(err);
+			}
+		})();
+	});
+};
+
+export const getEmployees2 = async (): Promise<Employee[]> => {
+	return new Promise((resolve, reject) => {
+		(async () => {
+			try {
+				const response = await fetch(
+					"https://edwardtanguay.vercel.app/share/employees.json"
+				);
+				const employees = await response.json();
+				setTimeout(() => {
+					resolve(employees);
+				}, loadWaitingInSecondsEmployees2 * 1000);
 			} catch (err) {
 				reject(err);
 			}

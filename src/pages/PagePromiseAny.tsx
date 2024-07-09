@@ -8,18 +8,12 @@ export const PagePromiseAny = () => {
 	const [employees, setEmployees] = useState<Employee[]>([]);
 	const [message, setMessage] = useState("");
 
-	const timeLimit = new Promise((_, reject) => {
-		setTimeout(() => {
-			reject(new Error("API too slow, data was not loaded."));
-		}, 2000);
-	});
-
 	useEffect(() => {
 		(async () => {
 			try {
-				const _employees = (await Promise.race([
+				const _employees = (await Promise.any([
 					tools.getEmployees(),
-					timeLimit,
+					tools.getEmployees2(),
 				])) as Employee[];
 				setEmployees(_employees);
 			} catch (err: unknown) {
@@ -30,10 +24,11 @@ export const PagePromiseAny = () => {
 
 	return (
 		<>
-		<h1>ANY</h1>
 			<h2 className="appMessage">
-				With Promise.race, you can set a time limit for when data from
-				an API needs to be returned, otherwise an error is thrown.
+				With Promise.any, you can have e.g. two APIs that load the same
+				data and use the data from the API that returns its data the fastest.
+				Note that to use Promise.any, you need to set "target"="es2021" in your
+				tsconfig.json.
 			</h2>
 			{message.trim() !== "" ? (
 				<h2 className="bg-red-400 p-2 rounded w-fit mb-3">{message}</h2>
