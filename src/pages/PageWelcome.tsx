@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { Job, Skill } from "../types";
+import { Employee, Job, Skill } from "../types";
 import * as tools from "../tools";
 
 export const PageWelcome = () => {
 	const [skills, setSkills] = useState<Skill[]>([]);
 	const [jobs, setJobs] = useState<Job[]>([]);
+	const [employees, setEmployees] = useState<Employee[]>([]);
 	const [message, setMessage] = useState("");
 
+	// CALLBACKS
 	useEffect(() => {
 		tools.getSkills((response) => {
 			if (typeof response !== "string") {
@@ -17,6 +19,7 @@ export const PageWelcome = () => {
 		});
 	}, []);
 
+	// PROMISES - ASYNC
 	useEffect(() => {
 		(async () => {
 			try {
@@ -28,6 +31,18 @@ export const PageWelcome = () => {
 		})();
 	}, []);
 
+	// PROMISES - THEN
+	useEffect(() => {
+		(async () => {
+			try {
+				const _employees = await tools.getEmployees();
+				setEmployees(_employees);
+			} catch (err: unknown) {
+				setMessage(`Error fetching employees: ${(err as Error).message}`);
+			}
+		})();
+	}, []);
+
 	return (
 		<>
 			{message.trim() !== "" && (
@@ -35,6 +50,7 @@ export const PageWelcome = () => {
 			)}
 			<p>There are {skills.length} skills:</p>
 			<p>There are {jobs.length} jobs:</p>
+			<p>There are {employees.length} employees:</p>
 		</>
 	);
 };

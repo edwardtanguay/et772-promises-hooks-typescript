@@ -14,3 +14,9 @@ export type Job = {
   skillList: string;
   publicationDate: string;
 };
+
+export type Employee = {
+  employeeID: number;
+  lastName: string;
+  firstName: string;
+};

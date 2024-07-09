@@ -1,4 +1,4 @@
-import { Job, Skill } from "./types";
+import { Employee, Job, Skill } from "./types";
 
 export const getSkills = (
 	callback: (skills: Skill[] | string) => void
@@ -31,3 +31,21 @@ export const getJobs = async (): Promise<Job[]> => {
 		})();
 	});
 };
+
+
+export const getEmployees = async (): Promise<Employee[]> => {
+	return new Promise((resolve, reject) => {
+		(async () => {
+			try {
+				const response = await fetch(
+					"https://edwardtanguay.vercel.app/share/employees.json"
+				);
+				const employees = await response.json();
+				resolve(employees);
+			} catch (err) {
+				reject(err);
+			}
+		})();
+	});
+};
+
