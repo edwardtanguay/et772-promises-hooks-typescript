@@ -1,3 +1,4 @@
+import { TypeScriptConditionalTypes } from "../components/TypeScriptConditionalTypes";
 import { TypeScriptOverloadedFunctionSignatures } from "../components/TypeScriptOverloadedFunctionSignatures";
 
 export const PageTypeScript = () => {
@@ -9,7 +10,7 @@ export const PageTypeScript = () => {
 			<h2 className="section">Overloaded Function Signatures</h2>
 			<TypeScriptOverloadedFunctionSignatures />
 			<h2 className="section mt-3">Conditional Types</h2>
-			<p>nnn</p>
+			<TypeScriptConditionalTypes />
 			<h2 className="section mt-3">Utility Types</h2>
 			<p>nnn</p>
 			<h2 className="section mt-3">Type Guarding</h2>
