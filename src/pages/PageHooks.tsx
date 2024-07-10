@@ -24,27 +24,16 @@ export const PageHooks = () => {
 	return (
 		<>
 			{skillsHaveError ? (
-				<p className="text-red-800">
-					ERROR: Skills could not load: {skillsError}
-				</p>
+				<p className="text-red-800"> ERROR: Skills could not load: {skillsError} </p>
 			) : (
-				<p>
-					There are {skillsAreLoading ? "(LOADING)" : skills.length}{" "}
-					skills.
-				</p>
+				<p> There are {skillsAreLoading ? "(LOADING)" : skills.length}{" "} skills.  </p>
 			)}
 
 			{jobsHaveError ? (
-				<p className="text-red-800">
-					ERROR: Jobs could not load: {jobsError}
-				</p>
+				<p className="text-red-800"> ERROR: Jobs could not load: {jobsError} </p>
 			) : (
 				<>
-					{jobsAreLoading ? (
-						<p>Jobs are loading...</p>
-					) : (
-						<p>There are {jobs.length} jobs.</p>
-					)}
+					{jobsAreLoading ? ( <p>Jobs are loading...</p>) : ( <p>There are {jobs.length} jobs.</p>)}
 				</>
 			)}
 		</>
