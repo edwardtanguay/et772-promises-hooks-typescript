@@ -12,6 +12,9 @@
 	.appMessage {
 		@apply text-sm text-yellow-100 italic bg-slate-600 px-3 py-2 rounded w-[40rem] font-mono mb-3;
 	}
+	h2.section {
+		@apply text-xl text-orange-950 bg-slate-300 px-2 py-1 rounded w-fit;
+	}
 }
 
 a.active {
