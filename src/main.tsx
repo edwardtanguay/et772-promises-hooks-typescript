@@ -10,6 +10,7 @@ import { PagePromiseAllSettled } from "./pages/PagePromiseAllSettled.tsx";
 import { PagePromiseRace } from "./pages/PagePromiseRace.tsx";
 import { PagePromiseAny } from "./pages/PagePromiseAny.tsx";
 import { PageHooks } from "./pages/PageHooks.tsx";
+import { PageTypeScript } from "./pages/PageTypeScript.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
 			{
 				path: "about",
 				element: <PageAbout />,
+			},
+			{
+				path: "typescript",
+				element: <PageTypeScript />,
 			},
 			{
 				path: "/",
