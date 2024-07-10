@@ -2,7 +2,7 @@ export const PageTypeScript = () => {
 	return (
 		<>
 			<h2 className="appMessage">
-			TypeScript concepts...
+			These are some advanced TypeScript concepts.
 			</h2>
 			<h2 className="section">Overloaded Function Signatures</h2>
 			<p>nnn</p>
