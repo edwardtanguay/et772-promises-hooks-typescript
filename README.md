@@ -1,4 +1,4 @@
-# et772-promises-hooks-typescript
+# showcase-promises-hooks-typescript
 
 NOTES: https://tanguay-eu.vercel.app/forays/313 
 
