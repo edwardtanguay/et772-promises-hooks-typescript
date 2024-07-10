@@ -1,11 +1,16 @@
 export const TypeScriptOverloadedFunctionSignatures = () => {
-	const displayNames = (names: string[]) => {
-		return names.join(", ");
+	const displayNames = (nameInfo: string | string[]) => {
+		if (typeof nameInfo === "string") {
+			return `Name: ${nameInfo}`;
+		} else if (Array.isArray(nameInfo)) {
+			return `Names: ${nameInfo.join(", ")}`;
+		}
+		throw new Error("Bad type");
 	};
-
+	
 	return (
 		<>
-			<h3>showing names</h3>
+			<p>{displayNames("David")}</p>
 			<p>{displayNames(["Jonas", "Angela", "Robert"])}</p>
 		</>
 	);
