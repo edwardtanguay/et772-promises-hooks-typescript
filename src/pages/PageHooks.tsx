@@ -23,6 +23,9 @@ export const PageHooks = () => {
 
 	return (
 		<>
+			<h2 className="appMessage">
+			The useFetch hook simplifies fetching data from an API by managing the loading, error, and response states within a separate component.
+			</h2>
 			{skillsHaveError ? (
 				<p className="text-red-800"> ERROR: Skills could not load: {skillsError} </p>
 			) : (
