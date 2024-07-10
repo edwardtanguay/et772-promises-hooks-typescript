@@ -11,10 +11,6 @@ export const PageTypeScript = () => {
 			<TypeScriptOverloadedFunctionSignatures />
 			<h2 className="section mt-3">Conditional Types</h2>
 			<TypeScriptConditionalTypes />
-			<h2 className="section mt-3">Utility Types</h2>
-			<p>nnn</p>
-			<h2 className="section mt-3">Type Guarding</h2>
-			<p>nnn</p>
 		</>
 	);
 };

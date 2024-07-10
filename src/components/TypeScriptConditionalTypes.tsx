@@ -14,7 +14,6 @@ type ShapeProperties<T> = T extends { kind: "circle" }
 	? { sideLength: number }
 	: never;
 
-// Test cases
 type CircleProps = ShapeProperties<Circle>;
 type SquareProps = ShapeProperties<Square>;
 // type InvalidShapeProps = ShapeProperties<{ kind: "triangle" }>; // is of type never
@@ -35,3 +34,5 @@ export const TypeScriptConditionalTypes = () => {
 		</>
 	);
 };
+
+
